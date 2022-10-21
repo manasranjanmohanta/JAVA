@@ -1,4 +1,4 @@
-package linkedlist.insertion;
+package linkedlist.single_linked_list.insertion;
 
 public class LL {
     private Node head;

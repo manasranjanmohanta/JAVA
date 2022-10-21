@@ -1,4 +1,4 @@
-package linkedlist.searching;
+package linkedlist.single_linked_list.searching;
 
 public class Main {
     public static void main(String[] args) {

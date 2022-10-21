@@ -1,4 +1,4 @@
-package linkedlist.deletion;
+package linkedlist.single_linked_list.deletion;
 
 public class Main {
     public static void main(String[] args) {

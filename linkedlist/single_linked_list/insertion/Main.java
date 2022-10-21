@@ -1,6 +1,4 @@
-package linkedlist.insertion;
-
-import linkedlist.insertion.LL;
+package linkedlist.single_linked_list.insertion;
 
 public class Main {
     public static void main(String[] args) {
