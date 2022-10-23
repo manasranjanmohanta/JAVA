@@ -8,6 +8,7 @@ public class LL {
         this.size = size;
     }
 
+//    Method for displaying the LinkedList
     public void display(){
         Node temp = head;
         while(temp != null){
@@ -16,6 +17,8 @@ public class LL {
         }
         System.out.println("END");
     }
+
+//    Method for inserting element at first
     public void insertAtFirst(int value){
         Node newNode = new Node(value);
         newNode.next = head;
@@ -25,6 +28,8 @@ public class LL {
         }
         size++;
     }
+
+//    Method for inserting element at last
     public void insertAtLast(int value){
         if(head == null){
             insertAtFirst(value);
@@ -35,6 +40,8 @@ public class LL {
         size++;
     }
 
+
+//    Method for inserting element at certaion position
     public void insertAtPos(int value, int pos){
         if(pos == 0){
             insertAtFirst(value);
@@ -53,6 +60,23 @@ public class LL {
         temp.next = newNode;
         size++;
     }
+
+
+    // Method for inserting element at a particular index using recursion
+    public void insertRec(int value, int index){
+        head = insertRec(value, index, head);
+    }
+    private Node insertRec(int value, int index, Node node){
+        if(index == 0){
+            Node temp = new Node(value, node);
+            size++;
+            return temp;
+        }
+        node.next = insertRec(value, index - 1, node.next);
+        return node;
+    }
+
+//    Creation of Node
     public class Node{
         private int value;
         private Node next;
