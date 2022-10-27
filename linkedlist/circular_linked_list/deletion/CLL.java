@@ -1,4 +1,4 @@
-package linkedlist.circular_linked_list;
+package linkedlist.circular_linked_list.deletion;
 
 public class CLL {
     private Node head;
@@ -21,7 +21,7 @@ public class CLL {
         }
     }
 
-//  For displaying circular linked list
+    //  For displaying circular linked list
     public void display(){
         Node node = head;
         if(head != null){
@@ -35,8 +35,8 @@ public class CLL {
             System.out.println("Linked list is null");
         }
     }
-// For inserting node in linked list
 
+// For inserting node in linked list
     public void insertAtLast(int value){
         Node node = new Node(value);
         if(head == null){
@@ -50,31 +50,41 @@ public class CLL {
         size++;
     }
 
-    public void insertAtFirst(int value){
-        Node node = new Node(value);
-        if(head == null){
-            insertAtLast(value);
-            return;
-        }
-        node.next = head;
-        tail.next = node;
-        head = node;
-        size++;
+// For deleting elements at first
+    public int deleteAtFirst(){
+        int value = head.value;
+        head = head.next;
+        tail.next = head;
+        size--;
+        return value;
     }
 
-    public void insertAtPos(int value, int pos){
-        Node node = new Node(value);
+// For deleting elements at last
+    public int deleteAtLast(){
         Node temp = head;
-        pos--;
-        while(pos > 1){
+        while(temp.next != tail){
             temp = temp.next;
+        }
+        int value = tail.value;
+        temp.next = tail.next;
+        size--;
+        return value;
+    }
+
+// For deleting elment at certain position
+    public int deleteAtPos(int pos){
+        pos--;
+        Node temp1 = head, temp2 = null;
+        while(pos > 0){
+            temp2 = temp1;
+            temp1 = temp1.next;
             pos--;
         }
-        node.next = temp.next;
-        temp.next = node;
-        size++;
-
+        int value = temp1.value;
+        temp2.next = temp1.next;
+        return value;
     }
+
 
 
     public static void main(String[] args) {
@@ -86,14 +96,19 @@ public class CLL {
         list.insertAtLast(5);
         list.display();
 
-// Inserting elements first
-//        list.insertAtFirst(6);
-//        list.display();
-// Inserting elements at certain position
+// Deleting first element
+        System.out.print("The deleted element is : ");
+        System.out.println(list.deleteAtFirst());
+        list.display();
 
-        list.insertAtPos(7,3);
+// Deleting last element
+        System.out.print("The deleted element is : ");
+        System.out.println(list.deleteAtLast());
+        list.display();
+
+// Deleting a certain element
+        System.out.println("The deleted element is : ");
+        System.out.println(list.deleteAtPos(3));
         list.display();
     }
-
-
 }
